@@ -53,12 +53,21 @@
             </tbody>
         </table>
 
-        <button
-            class="border border-black p-2"
-            @click="addActivity"
-        >
-            Add activity
-        </button>
+        <div class="flex gap-2">
+            <button
+                class="border border-black p-2"
+                @click="addActivity"
+            >
+                Add activity
+            </button>
+
+            <button
+                class="border border-black p-2"
+                @click="makeEquitative"
+            >
+                Equitative
+            </button>
+        </div>
     </div>
 </template>
 
@@ -102,6 +111,12 @@ function deleteActivity(id) {
 
 function addActivity() {
     activities.value.push(makeActivity())
+}
+
+function makeEquitative() {
+    for (const activity of activities.value) {
+        activity.weight = 1
+    }
 }
 </script>
 
